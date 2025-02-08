@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    <p>This is some text.</p>
+    <span>This is more text.</span>
+  </div>
+  <script>
+    function getAllText(element) {
+      let text = "";
+      for (const node of element.childNodes) {
+        if (node.nodeType === Node.TEXT_NODE) {
+          text += node.textContent;
+        } else {
+          text += getAllText(node); // Recursively handle nested elements
+        }
+      }
+      return text;
+    }
+    const div = document.getElementById("myDiv");
+    const allText = getAllText(div);
+    console.log(allText); // Output: "This is some text.This is more text." 
+  </script>
+</body>
+</html>
