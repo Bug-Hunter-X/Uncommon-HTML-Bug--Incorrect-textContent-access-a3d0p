@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    <p>This is some text.</p>
+  </div>
+  <script>
+    // Incorrectly accessing the text content of a div that contains other elements
+    const divText = document.getElementById("myDiv").textContent;
+    console.log(divText); // Output might be unexpected, not just "This is some text."
+  </script>
+</body>
+</html>
